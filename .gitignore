@@ -1,15 +1,18 @@
-/build
+# Ignore vscode workspace config files
+.vscode
+.history
+
+
+# Never commit the ENV file
 .env
-.env.dev
-env.conf
-reports.csv
-.DS_Store
-/tmp
-.vscode/
 
-internal/gql/generated.go
-internal/gql/models/generated.go
-internal/gql/resolvers/generated.go
+# MacOS temp files
+**/.DS_Store
+**.log
 
-server
-server.exe
+# build/ folder should be present, but the contents not, just .keep this one
+build/*
+!build/.keep
+
+# Ignore debug executable created by vscode
+__debug*

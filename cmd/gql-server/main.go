@@ -1,9 +1,20 @@
 package main
 
 import (
-    "github.com/twallickHome/go-gql-server/pkg/server"
+	"github.com/cmelgarejo/go-gql-server/cmd/gql-server/config"
+	"github.com/cmelgarejo/go-gql-server/internal/logger"
+
+	"github.com/cmelgarejo/go-gql-server/internal/orm"
+	"github.com/cmelgarejo/go-gql-server/pkg/server"
 )
 
+// main
 func main() {
-    server.Run()
+	sc := config.Server()
+	orm, err := orm.Factory(sc)
+	defer orm.DB.Close()
+	if err != nil {
+		logger.Panic(err)
+	}
+	server.Run(sc, orm)
 }
