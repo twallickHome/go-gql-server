@@ -1,0 +1,15 @@
+/build
+.env
+.env.dev
+env.conf
+reports.csv
+.DS_Store
+/tmp
+.vscode/
+
+internal/gql/generated.go
+internal/gql/models/generated.go
+internal/gql/resolvers/generated.go
+
+server
+server.exe
